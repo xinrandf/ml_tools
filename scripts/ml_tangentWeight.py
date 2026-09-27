@@ -1,15 +1,4 @@
-# -= ml_tangentWeight.py =-
-#                __   by Morgan Loomis
-#     ____ ___  / /  http://morganloomis.com
-#    / __ `__ \/ /  Revision 5
-#   / / / / / / /  2018-05-14
-#  /_/ /_/ /_/_/  _________
-#               /_________/
-# 
-#     ______________
-# - -/__ License __/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-# 
-# Copyright 2018 Morgan Loomis
+
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy of 
 # this software and associated documentation files (the "Software"), to deal in 

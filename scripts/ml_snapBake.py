@@ -1,53 +1,4 @@
-# -= ml_snapBake.py =-
-#                __   by Morgan Loomis
-#     ____ ___  / /  http://morganloomis.com
-#    / __ `__ \/ /  Revision 1
-#   / / / / / / /  2025-01-24
-#  /_/ /_/ /_/_/  _________
-#               /_________/
-#
-#     ______________
-# - -/__ License __/- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Copyright 2026 Morgan Loomis
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy of
-# this software and associated documentation files (the "Software"), to deal in
-# the Software without restriction, including without limitation the rights to use,
-# copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-# Software, and to permit persons to whom the Software is furnished to do so,
-# subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-# FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-# IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-#
-#     __________________
-# - -/__ Description __/- - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Create a locator constrained to a node or surface that acts as a target for
-# another node. Used to get one transform to follow another without a live
-# connection (baking on demand). Avoids cycles when constraining e.g. a hand
-# to its own mesh.
-#
-#     ____________
-# - -/__ Usage __/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# Select source (transform or mesh vertex) then destination. Create Snap Locator.
-# Key the locator's "Follow" attribute on/off for frames to bake. Press Bake
-# Snap Locators to snap the destination to the locator on those frames.
-#
-#     ___________________
-# - -/__ Requirements __/- - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-# This script requires the ml_utilities module.
-#
+
 #                                                             __________
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - /_ Enjoy! _/- - -
 
@@ -137,7 +88,7 @@ def create_snap_locator_sel(maintainOffset=True):
     src = sel[0]
     dst = sel[1]
 
-    # Resolve destination to transform (strip components)
+    # Resolve destination to transform to transform 
     if '.' in dst and ('vtx[' in dst or '.cv[' in dst or '.pt[' in dst):
         utl.warning('Destination must be a transform, not a component.')
         return

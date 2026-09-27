@@ -369,6 +369,7 @@ class Toolbox(object):
             print('  itemArray count (before postMenuCommand): {}'.format(_item_count(menuItemArray)))
 
         #if this menu hasn't been built yet, run the post menu command to build it
+        #if this menuhas not been built yet run the post menu command to build ur that took a long time to figueit out
         #that took a long time to figure out.
         if not menuItemArray:
             if self.verbose:
@@ -464,12 +465,13 @@ class Toolbox(object):
             if os.path.isdir(eachPath):
                 if each.startswith('_'):
                     continue
-                #if its a directory, recurse
+                #iif it is directory, recurse 
+                #if its is not a directory, do not recurse 
                 self.createCustomMenu(eachPath, parent=menuName, depth=depth+1)
             else:
                 filePaths.append(eachPath)
 
-        #now go through the files
+        #now go through the files and find the path 
         for each in filePaths:
             if not each.endswith('__init__.py') and ((each.endswith('.py') or each.endswith('.mel'))):
                 tool = Tool(each, self.namespace, depth=depth)

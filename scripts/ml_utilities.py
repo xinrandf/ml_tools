@@ -1,59 +1,4 @@
-# -= ml_utilities.py =-
-#                __   by Morgan Loomis
-#     ____ ___  / /  http://morganloomis.com
-#    / __ `__ \/ /  Revision 36
-#   / / / / / / /  2019-03-07
-#  /_/ /_/ /_/_/  _________
-#               /_________/
-# 
-#     ______________
-# - -/__ License __/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-# 
-# Copyright 2018 Morgan Loomis
-# 
-# Permission is hereby granted, free of charge, to any person obtaining a copy of 
-# this software and associated documentation files (the "Software"), to deal in 
-# the Software without restriction, including without limitation the rights to use, 
-# copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the 
-# Software, and to permit persons to whom the Software is furnished to do so, 
-# subject to the following conditions:
-# 
-# The above copyright notice and this permission notice shall be included in all 
-# copies or substantial portions of the Software.
-# 
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS 
-# FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR 
-# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER 
-# IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
-# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-# 
-#     ___________________
-# - -/__ Installation __/- - - - - - - - - - - - - - - - - - - - - - - - - - 
-# 
-# Copy this file into your maya scripts directory, for example:
-#     C:/Documents and Settings/user/My Documents/maya/scripts/ml_utilities.py
-# 
-# Run the tool in a python shell or shelf button by importing the module, 
-# and then calling the primary function:
-# 
-#     import ml_utilities
-#     ml_utilities._showHelpCommand()
-# 
-# 
-#     __________________
-# - -/__ Description __/- - - - - - - - - - - - - - - - - - - - - - - - - - - 
-# 
-# A collection of support functions that are required by several of the tools in
-# this library. The individual tools will tell you if this script is required.
-# 
-#     ____________
-# - -/__ Usage __/- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-# 
-# ml_utilities isn't a stand alone tool, and so it isn't meant to be used
-# directly. However, you can certainly call these functions if they seem useful in
-# your own scripts.
-# 
+
 # 
 #                                                             __________
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - /_ Enjoy! _/- - -
@@ -367,7 +312,7 @@ def frameRange(start=None, end=None):
             end = mc.playbackOptions(query=True, max=True)
 
     return start,end
-
+#the clear defined case a deeper level of exploration
 
 def getChannelFromAnimCurve(curve, plugs=True):
     '''
@@ -385,9 +330,9 @@ def getChannelFromAnimCurve(curve, plugs=True):
     if nodeType.startswith('animCurveT') or nodeType.startswith('animBlendNode'):
         source = mc.listConnections(curve+'.output', source=False, plugs=plugs)
         if not source and nodeType=='animBlendNodeAdditiveRotation':
-            #if we haven't found a connection from .output, then it may be a node that uses outputX, outputY, etc.
-            #get the proper attribute by using the last letter of the input attribute, which should be X, Y, etc.
-            #if we're not returning plugs, then we wont have an attr suffix to use, so just use X.
+            #if we havent find this connection from the output, then it mayb be a node use OutputX, OutputY, 
+                        #get the proper attribute by using the last letter of the input attribute, which should be X, Y, etc.
+                        #if we're not returning plugs, then we wont have an attr suffix to use, so just use X.
             attrSuffix = 'X'
             if plugs:
                 attrSuffix = attr[-1]
